@@ -9,39 +9,21 @@ public class Assignment5 {
 		
 		Scanner scn=new Scanner(System.in);
 		String input=scn.nextLine();
-		char[] arr=input.toCharArray();
-		Assignment5.isUpperCase(arr);
+		Assignment5.isUpperCase(input);
 		System.out.println();
 	}
 	
-	public static void isUpperCase(char[] a) {
-		int len=a.length;
-		ArrayList<Integer[]> upp=new ArrayList<Integer[]>();
-		int count =0;
-		int back=0;
-		for(int i=0;i<len;i++) {
-			if(Character.isUpperCase(a[i])&&count==0) {
-				Integer[] a1= {0,i-1};
-				upp.add(a1);
-				back=i-1;
-				count=count+1;
+	public static void isUpperCase(String a) {
+		char[] ar2=a.toCharArray();
+		int len=a.length();
+		System.out.print(Character.toUpperCase(ar2[0]));
+		for(int i=1;i<len;i++) {
+			if(Character.isUpperCase(ar2[i])) {
+				System.out.print(" "+ar2[i]);
+			}else {
+				System.out.print(ar2[i]);
 			}
-			else if(Character.isUpperCase(a[i])) {
-				Integer[] a1= {back+1,i-1};
-				upp.add(a1);
-				back=i-1;
-			}
-		
-			
 		}
-		Integer[] a1= {back+1,len-1};
-		upp.add(a1);
-		System.out.println(upp.get(0)[0]);
-		System.out.println(upp.get(0)[1]);
-//		System.out.println(a.getClass());
-		System.out.println(upp.get(1)[0]);
-		System.out.println(upp.get(1)[1]);
-		
 	}
 
 }
